@@ -38,7 +38,7 @@ on_windows = sys.platform.startswith('win')
 
 MOD_NAME = 'brute_force_cython_ext'
 MOD_PATH = 'imagededup/handlers/search/brute_force_cython_ext'
-COMPILE_LINK_ARGS = ['-O3', '-march=native', '-mtune=native']
+COMPILE_LINK_ARGS = ['-O3']
 # On Mac, use libc++ because Apple deprecated use of libstdc
 COMPILE_ARGS_OSX = ['-stdlib=libc++']
 LINK_ARGS_OSX = ['-lc++', '-nodefaultlibs']
@@ -96,14 +96,12 @@ setup(
     long_description=long_description,
     license='Apache 2.0',
     install_requires=[
-        'numpy<1.17',
-        'Pillow<7.0.0',
-        'PyWavelets~=1.0.3',
-        'scipy',
-        'tensorflow>1.0',
+        'tensorflow',
+        'Pillow',
         'tqdm',
         'scikit-learn',
-        'matplotlib',
+        'PyWavelets',
+        'matplotlib'
     ],
     extras_require={
         'tests': ['pytest', 'pytest-cov', 'pytest-mock', 'codecov'],
